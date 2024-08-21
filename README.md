@@ -12,7 +12,8 @@ You should install .NET 6.0 Desktop Runtime and Visual C++ redistributable libra
 You can install this software using the installer “ELOGFieldAnalyzerSetup.exe”.
 
 If the installer cannot work, please copy all files under the “bin” folder to an install folder on your PC. 
-*The name of the install folder should NOT contain non-ASCII characters (e.g., Japanese characters).
+
+The name of the install folder should NOT contain non-ASCII characters (e.g., Japanese characters).
 
 ## Functional overview
 ELOG Field Analyzer has a lot of functions to analyze the data measured by ELOG series.
