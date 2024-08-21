@@ -17,20 +17,24 @@ If the installer cannot work, please copy all files under the “bin” folder t
 ELOG Field Analyzer has a lot of functions to analyze the data measured by ELOG series.
 
 _**Time Series Plot**_
-Even high sampling data (e.g., 1024 Hz sampling) can be visualized quickly.
-You just have to click a button to move to the next day or the previous day.
-Lowpass, highpass, and notch filters can be applied to time series.
+
+* Even high sampling data (e.g., 1024 Hz sampling) can be visualized quickly.
+* You just have to click a button to move to the next day or the previous day.
+* Lowpass, highpass, and notch filters can be applied to time series.
 
 _**Power Spectrum Plot**_
-Power spectra of all channels can be plotted.
-The frequency at the cursor position is easily identifiable.
+
+* Power spectra of all channels can be plotted.
+* The frequency at the cursor position is easily identifiable.
 
 _**Response Function Estimation**_
-Power interface with TRACMT. You can control it by simple GUI operations.
-All required information for the estimation can be inputted in a window.
-Robust estimators, prewhitenting, and down-sampling are supported (of course, the ordinary lease square also can be used).
+
+* Power interface with TRACMT. You can control it by simple GUI operations.
+* All required information for the estimation can be inputted in a window.
+* Robust estimators, prewhitenting, and down-sampling are supported (of course, the ordinary lease square also can be used).
 
 _**Response Function Plot**_
-You can plot resultant response functions (impedance tensor and tipper) simply by pushing a button.
+
+* You can plot resultant response functions (impedance tensor and tipper) simply by pushing a button.
 
 *Please send technical questions about this software to Dr. Yoshiya Usui (https://github.com/yoshiya-usui). 
