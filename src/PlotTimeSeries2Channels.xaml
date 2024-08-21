@@ -1,0 +1,233 @@
+﻿<Window x:Class="PlotTimeSeries.PlotTimeSeries2Channels"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlotTimeSeries"
+        mc:Ignorable="d"
+        Title="Time series" Height="434" Width="936" ResizeMode="CanMinimize">
+    <Grid Margin="0,0,10,-6">
+        <WpfPlot x:Name="TimeSeriesCh0" HorizontalAlignment="Left" Margin="55,0,0,0"   VerticalAlignment="Top" Height="110" Width="700" MouseMove="TimeSeriesCh0_MouseMove" MouseLeave="TimeSeriesCh0_MouseLeave" MouseDoubleClick="TimeSeriesCh0_MouseDoubleClick" />
+        <WpfPlot x:Name="TimeSeriesCh1" HorizontalAlignment="Left" Margin="55,90,0,0"  VerticalAlignment="Top" Height="110" Width="700" MouseMove="TimeSeriesCh1_MouseMove" MouseLeave="TimeSeriesCh1_MouseLeave" MouseDoubleClick="TimeSeriesCh1_MouseDoubleClick" />
+        <TextBlock x:Name="TextBlockCh0Max" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="" Width="60" TextAlignment="Right"/>
+        <TextBlock x:Name="TextBlockCh0Min" HorizontalAlignment="Left" Margin="10,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="" Width="60" TextAlignment="Right"/>
+        <TextBlock x:Name="TextBlockCh1Max" HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="" Width="60" TextAlignment="Right"/>
+        <TextBlock x:Name="TextBlockCh1Min" HorizontalAlignment="Left" Margin="10,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="" Width="60" TextAlignment="Right"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,45,0,0"  TextWrapping="Wrap" Text="Ex" VerticalAlignment="Top" Height="20" Width="35"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,135,0,0" TextWrapping="Wrap" Text="Ey" VerticalAlignment="Top" Height="20" Width="35"/>
+        <ComboBox x:Name="ComboBoxTimeSpanHour" HorizontalAlignment="Left" Margin="777,208,0,0" VerticalAlignment="Top" Width="60" IsEditable="False" SelectedIndex="1" DropDownClosed="ComboBoxTimeSpanHour_DropDownClosed" Height="21">
+            <ComboBoxItem Content="0"/>
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+            <ComboBoxItem Content="6"/>
+            <ComboBoxItem Content="7"/>
+            <ComboBoxItem Content="8"/>
+            <ComboBoxItem Content="9"/>
+            <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="11"/>
+            <ComboBoxItem Content="12"/>
+            <ComboBoxItem Content="13"/>
+            <ComboBoxItem Content="14"/>
+            <ComboBoxItem Content="15"/>
+            <ComboBoxItem Content="16"/>
+            <ComboBoxItem Content="17"/>
+            <ComboBoxItem Content="18"/>
+            <ComboBoxItem Content="19"/>
+            <ComboBoxItem Content="20"/>
+            <ComboBoxItem Content="21"/>
+            <ComboBoxItem Content="22"/>
+            <ComboBoxItem Content="23"/>
+            <ComboBoxItem Content="24"/>
+        </ComboBox>
+        <ComboBox x:Name="ComboBoxTimeSpanMinute" HorizontalAlignment="Left" Margin="777,235,0,0" VerticalAlignment="Top" Width="60" IsEditable="False" SelectedIndex="0" DropDownClosed="ComboBoxTimeSpanMinute_DropDownClosed" Height="22" >
+            <ComboBoxItem Content="0"/>
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+            <ComboBoxItem Content="6"/>
+            <ComboBoxItem Content="7"/>
+            <ComboBoxItem Content="8"/>
+            <ComboBoxItem Content="9"/>
+            <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="11"/>
+            <ComboBoxItem Content="12"/>
+            <ComboBoxItem Content="13"/>
+            <ComboBoxItem Content="14"/>
+            <ComboBoxItem Content="15"/>
+            <ComboBoxItem Content="16"/>
+            <ComboBoxItem Content="17"/>
+            <ComboBoxItem Content="18"/>
+            <ComboBoxItem Content="19"/>
+            <ComboBoxItem Content="20"/>
+            <ComboBoxItem Content="21"/>
+            <ComboBoxItem Content="22"/>
+            <ComboBoxItem Content="23"/>
+            <ComboBoxItem Content="24"/>
+            <ComboBoxItem Content="25"/>
+            <ComboBoxItem Content="26"/>
+            <ComboBoxItem Content="27"/>
+            <ComboBoxItem Content="28"/>
+            <ComboBoxItem Content="29"/>
+            <ComboBoxItem Content="30"/>
+            <ComboBoxItem Content="31"/>
+            <ComboBoxItem Content="32"/>
+            <ComboBoxItem Content="33"/>
+            <ComboBoxItem Content="34"/>
+            <ComboBoxItem Content="35"/>
+            <ComboBoxItem Content="36"/>
+            <ComboBoxItem Content="37"/>
+            <ComboBoxItem Content="38"/>
+            <ComboBoxItem Content="39"/>
+            <ComboBoxItem Content="40"/>
+            <ComboBoxItem Content="41"/>
+            <ComboBoxItem Content="42"/>
+            <ComboBoxItem Content="43"/>
+            <ComboBoxItem Content="44"/>
+            <ComboBoxItem Content="45"/>
+            <ComboBoxItem Content="46"/>
+            <ComboBoxItem Content="47"/>
+            <ComboBoxItem Content="48"/>
+            <ComboBoxItem Content="49"/>
+            <ComboBoxItem Content="50"/>
+            <ComboBoxItem Content="51"/>
+            <ComboBoxItem Content="52"/>
+            <ComboBoxItem Content="53"/>
+            <ComboBoxItem Content="54"/>
+            <ComboBoxItem Content="55"/>
+            <ComboBoxItem Content="56"/>
+            <ComboBoxItem Content="57"/>
+            <ComboBoxItem Content="58"/>
+            <ComboBoxItem Content="59"/>
+        </ComboBox>
+        <ComboBox x:Name="ComboBoxTimeSpanSecond" HorizontalAlignment="Left" Margin="777,266,0,0" VerticalAlignment="Top"  Width="60" IsEditable="False" SelectedIndex="0" DropDownClosed="ComboBoxTimeSpanSecond_DropDownClosed" Height="22">
+            <ComboBoxItem Content="0"/>
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+            <ComboBoxItem Content="6"/>
+            <ComboBoxItem Content="7"/>
+            <ComboBoxItem Content="8"/>
+            <ComboBoxItem Content="9"/>
+            <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="11"/>
+            <ComboBoxItem Content="12"/>
+            <ComboBoxItem Content="13"/>
+            <ComboBoxItem Content="14"/>
+            <ComboBoxItem Content="15"/>
+            <ComboBoxItem Content="16"/>
+            <ComboBoxItem Content="17"/>
+            <ComboBoxItem Content="18"/>
+            <ComboBoxItem Content="19"/>
+            <ComboBoxItem Content="20"/>
+            <ComboBoxItem Content="21"/>
+            <ComboBoxItem Content="22"/>
+            <ComboBoxItem Content="23"/>
+            <ComboBoxItem Content="24"/>
+            <ComboBoxItem Content="25"/>
+            <ComboBoxItem Content="26"/>
+            <ComboBoxItem Content="27"/>
+            <ComboBoxItem Content="28"/>
+            <ComboBoxItem Content="29"/>
+            <ComboBoxItem Content="30"/>
+            <ComboBoxItem Content="31"/>
+            <ComboBoxItem Content="32"/>
+            <ComboBoxItem Content="33"/>
+            <ComboBoxItem Content="34"/>
+            <ComboBoxItem Content="35"/>
+            <ComboBoxItem Content="36"/>
+            <ComboBoxItem Content="37"/>
+            <ComboBoxItem Content="38"/>
+            <ComboBoxItem Content="39"/>
+            <ComboBoxItem Content="40"/>
+            <ComboBoxItem Content="41"/>
+            <ComboBoxItem Content="42"/>
+            <ComboBoxItem Content="43"/>
+            <ComboBoxItem Content="44"/>
+            <ComboBoxItem Content="45"/>
+            <ComboBoxItem Content="46"/>
+            <ComboBoxItem Content="47"/>
+            <ComboBoxItem Content="48"/>
+            <ComboBoxItem Content="49"/>
+            <ComboBoxItem Content="50"/>
+            <ComboBoxItem Content="51"/>
+            <ComboBoxItem Content="52"/>
+            <ComboBoxItem Content="53"/>
+            <ComboBoxItem Content="54"/>
+            <ComboBoxItem Content="55"/>
+            <ComboBoxItem Content="56"/>
+            <ComboBoxItem Content="57"/>
+            <ComboBoxItem Content="58"/>
+            <ComboBoxItem Content="59"/>
+        </ComboBox>
+        <TextBox x:Name="TextBoxMilliSecond" HorizontalAlignment="Left" Margin="777,298,0,0" TextWrapping="Wrap" Text="0&#xA;" VerticalAlignment="Top" Width="60" TextChanged="TextBoxMilliSecond_TextChanged" Height="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="777,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="72"><Run Text="Data span"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="846,208,0,0" TextWrapping="Wrap" Text="hour" VerticalAlignment="Top" Height="18" Width="45"/>
+        <TextBlock HorizontalAlignment="Left" Margin="846,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="min" Height="18" Width="24"/>
+        <TextBlock HorizontalAlignment="Left" Margin="846,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="sec" Height="18" Width="32"/>
+        <TextBlock HorizontalAlignment="Left" Margin="846,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="millisec" Height="18" Width="64"/>
+        <Slider x:Name="SliderForStartTime" HorizontalAlignment="Left" Margin="73,250,0,0" VerticalAlignment="Top" Width="626" Height="30" Minimum="0" Maximum="100" RenderTransformOrigin="0.5,0.5" ValueChanged="SliderForStartTime_ValueChanged">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+        <Button x:Name="ButtonIncreaseTime" Content="&gt;&gt;" HorizontalAlignment="Left" Margin="710,261,0,0" VerticalAlignment="Top" Width="30" Click="ButtonIncreaseTime_Click" Height="20"/>
+        <Button x:Name="ButtonDecreaseTime" Content="&lt;&lt;" HorizontalAlignment="Left" Margin="27,261,0,0" VerticalAlignment="Top" Width="30" Click="ButtonDecreaseTime_Click" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="777,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="83"><Run Text="Data number"/><LineBreak/><Run/></TextBlock>
+        <ComboBox x:Name="ComboBoxDataNumber" HorizontalAlignment="Left" Margin="777,137,0,0" VerticalAlignment="Top"  Width="75" IsEditable="False" SelectedIndex="4" DropDownClosed="ComboBoxDataNumber_DropDownClosed" Height="22">
+            <ComboBoxItem Content="32"/>
+            <ComboBoxItem Content="64"/>
+            <ComboBoxItem Content="128"/>
+            <ComboBoxItem Content="256"/>
+            <ComboBoxItem Content="512"/>
+            <ComboBoxItem Content="1024"/>
+            <ComboBoxItem Content="2048"/>
+            <ComboBoxItem Content="4096"/>
+            <ComboBoxItem Content="8192"/>
+            <ComboBoxItem Content="16384"/>
+            <ComboBoxItem Content="32768"/>
+            <ComboBoxItem Content="65536"/>
+            <ComboBoxItem Content="131072"/>
+            <ComboBoxItem Content="262144"/>
+            <ComboBoxItem Content="524288"/>
+        </ComboBox>
+        <TextBlock x:Name="TextBlockStartDay" HorizontalAlignment="Left" Margin="48,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="yyyy/MM/dd" Width="90" TextAlignment="Center" Height="16"/>
+        <TextBlock x:Name="TextBlockStartTime" HorizontalAlignment="Left" Margin="48,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="HH:mm:ss.FFF" Width="90" TextAlignment="Center" Height="16"/>
+        <TextBlock x:Name="TextBlockEndDay" HorizontalAlignment="Left" Margin="662,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="yyyy/MM/dd" Width="90" TextAlignment="Center" Height="16"/>
+        <TextBlock x:Name="TextBlockEndTime" HorizontalAlignment="Left" Margin="662,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="HH:mm:ss.FFF" Width="90" TextAlignment="Center" Height="16"/>
+        <Button x:Name="ButtonToYesterdayEnd" Content="Previous day (tail)" HorizontalAlignment="Left" Margin="154,231,0,0" VerticalAlignment="Top" Click="ButtonToYesterdayEnd_Click" Width="110" Height="20"/>
+        <Button x:Name="ButtonToYesterday" Content="Previous day" HorizontalAlignment="Left" Margin="298,231,0,0" VerticalAlignment="Top" Click="ButtonToYesterday_Click" Width="90" Height="20"/>
+        <Button x:Name="ButtonToTomorrow" Content="Next day" HorizontalAlignment="Left" Margin="422,231,0,0" VerticalAlignment="Top" Click="ButtonToTomorrow_Click" Width="90" Height="20"/>
+        <Button x:Name="ButtonToTomorrowStart" Content="Next day (head)" HorizontalAlignment="Left" Margin="542,231,0,0" VerticalAlignment="Top" Click="ButtonToTomorrowStart_Click" Width="110" Height="20"/>
+
+        <Button x:Name="ButtonLPF" Content="LPF" HorizontalAlignment="Left" Margin="29,327,0,0" VerticalAlignment="Top" Height="22" Width="59" Click="ButtonLPF_Click"/>
+        <Button x:Name="ButtonHPF" Content="HPF" HorizontalAlignment="Left" Margin="193,327,0,0" VerticalAlignment="Top" Height="22" Width="61" Click="ButtonHPF_Click"/>
+        <Button x:Name="ButtonNotch" Content="Notch" HorizontalAlignment="Left" Margin="355,327,0,0" VerticalAlignment="Top" Height="22" Width="61" Click="ButtonNotch_Click"/>
+        <TextBox x:Name="TextBoxLPF" HorizontalAlignment="Left" Margin="101,329,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="60" Height="18"/>
+        <TextBox x:Name="TextBoxHPF" HorizontalAlignment="Left" Margin="265,329,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="60" Height="18"/>
+        <TextBox x:Name="TextBoxNotch" HorizontalAlignment="Center" Margin="0,329,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Height="18"/>
+        <Button x:Name="PlotPowerSpectrum" Content="Power spectra" HorizontalAlignment="Left" Margin="778,338,0,0" VerticalAlignment="Top" Height="22" Width="100" Click="ButtonPlotPowerSpectrum_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="101,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="90" ><Run Text="Frequency(Hz)"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="264,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="90"><Run Text="Frequency(Hz)"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="433,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="90"><Run Text="Frequency(Hz)"/></TextBlock>
+        <StackPanel Margin="774,44,16,157">
+            <RadioButton x:Name="RadioButtonFree" Content="All" IsChecked="True" Checked="RadioButtonFree_Checked"/>
+            <RadioButton x:Name="RadioButtonFixDataNumber" Content="Data number" IsChecked="False" Checked="RadioButtonFixDataNumber_Checked"/>
+            <RadioButton x:Name="RadioButtonFixTimeSpan" Content="Data span" IsChecked="False" Checked="RadioButtonFixTimeSpan_Checked"/>
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" Margin="779,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="48"><Run Text="Type"/><LineBreak/><Run/></TextBlock>
+        <Button x:Name="ButtonFilterClear" Content="Clear filters" HorizontalAlignment="Left" Margin="521,327,0,0" VerticalAlignment="Top" Height="22" Width="80" Click="ButtonFilterClear_Click"/>
+        <Button x:Name="ButtonFilterHistory" Content="Filter history" HorizontalAlignment="Left" Margin="620,327,0,0" VerticalAlignment="Top" Height="22" Width="80" Click="ButtonFilterHistory_Click"/>
+    </Grid>
+</Window>

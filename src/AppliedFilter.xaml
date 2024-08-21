@@ -1,0 +1,26 @@
+﻿<Window x:Class="PlotTimeSeries.AppliedFilter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlotTimeSeries"
+        mc:Ignorable="d"
+        Title="Applied filters" Height="450" Width="500" ResizeMode="CanMinimize">
+    <Grid Height="440" VerticalAlignment="Bottom" Margin="0,0,0,-6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="369*" />
+            <ColumnDefinition Width="131*" />
+        </Grid.ColumnDefinitions>
+        <WpfPlot x:Name="FrequencyCharacteristic" Margin="10,10,10,0" MouseDoubleClick="FrequencyCharacteristic_MouseDoubleClick" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="TextBoxLog" Grid.Row="1"  VerticalScrollBarVisibility="Auto" HorizontalAlignment="Right" Width="327" Height="192" VerticalAlignment="Top" />
+        <TextBlock HorizontalAlignment="Center" Margin="0,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Text="Lower bound(Hz)" Grid.Column="1" Grid.Row="1"/>
+        <TextBox x:Name="TextBoxLowerFrequency" Margin="17,0,50,0" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"/>
+        <TextBlock Margin="17,17,18,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Upper bound(Hz)" Grid.Column="1" Grid.Row="1"/>
+        <TextBox x:Name="TextBoxUpperFrequency" Margin="17,40,50,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name="ButtonChangeFrequencyRange" Content="Change range" Margin="17,151,18,0" VerticalAlignment="Top" Click="ButtonChangeFrequencyRange_Click" Grid.Column="1" Grid.Row="1"/>
+    </Grid>
+</Window>

@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="AppliedFilter.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlotApparentResistivityAndPhase.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlotPowerSpectrum2Channels.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlotPowerSpectrum4Channels.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlotPowerSpectrum5Channels.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlotPowerSpectrum6Channels.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlotPowerSpectrum7Channels.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlotTimeSeries2Channels.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlotTimeSeries4Channels.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlotTimeSeries5Channels.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlotTimeSeries6Channels.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlotTimeSeries7Channels.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlotTimeSeriesATSRR.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PlotVMTF.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ResponseFunctionEstimation4Channels.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ResponseFunctionEstimation5Channels.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SelectFileForATS.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SelectFileForELOGDualADU.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SelectFileForELOGDualPHX.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SelectFileForELOGMTADU.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SelectFileForELOGMTPHX.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SelectFileForText.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AppliedFilter.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlotApparentResistivityAndPhase.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlotPowerSpectrum2Channels.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlotPowerSpectrum4Channels.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlotPowerSpectrum5Channels.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlotPowerSpectrum6Channels.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlotPowerSpectrum7Channels.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlotTimeSeries2Channels.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlotTimeSeries4Channels.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlotTimeSeries5Channels.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlotTimeSeries6Channels.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlotTimeSeries7Channels.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PlotVMTF.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResponseFunctionEstimation4Channels.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResponseFunctionEstimation5Channels.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SelectFileForATS.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SelectFileForELOGDualADU.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SelectFileForELOGDualPHX.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SelectFileForELOGMTADU.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SelectFileForELOGMTPHX.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SelectFileForText.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

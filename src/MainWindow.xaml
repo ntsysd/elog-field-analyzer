@@ -1,0 +1,25 @@
+﻿<Window x:Class="PlotTimeSeries.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlotTimeSeries"
+        mc:Ignorable="d"
+        Title="Select file type" Height="235" Width="520" ResizeMode="CanMinimize">
+    <Grid x:Name="CsvFileSelect" RenderTransformOrigin="0.5,0.5" Margin="10,7,10,0" Height="209" VerticalAlignment="Top">
+        <TextBlock HorizontalAlignment="Left" Margin="11,9,0,0" TextWrapping="Wrap" Text="File type" VerticalAlignment="Top" Height="20" Width="71"/>
+        <RadioButton x:Name="ELOGMTADU" Content="ELOG-MT(ADU mode)" IsChecked="True" Margin="95,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <RadioButton x:Name="ELOGMTPHX" Content="ELOG-MT(PHX mode)" IsChecked="False" Margin="320,11,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <RadioButton x:Name="ELOGDualADU" Content="ELOG-DUAL(ADU mode)+ELOG-MT" IsChecked="False" Margin="95,38,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <RadioButton x:Name="ELOGDualPHX" Content="ELOG-DUAL(PHX mode)" IsChecked="False" Margin="320,38,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <RadioButton x:Name="ELOGDualADUATS" Content="ELOG-DUAL(ADU mode)+ATS" IsChecked="False" Margin="95,66,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <RadioButton x:Name="ELOG1K" Content="ELOG1K+ELOG-MT" IsChecked="False" Margin="320,66,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <RadioButton x:Name="ELOG1KATS" Content="ELOG1K+ATS" IsChecked="False" Margin="95,96,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Button x:Name="SelectType" Content="Select" HorizontalAlignment="Left" Margin="95,129,0,0" VerticalAlignment="Top" Width="64" Click="SelectType_Click"/>
+
+        <!--<RadioButton x:Name="ATS" Content="ATS" IsChecked="False" Margin="95,125,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <RadioButton x:Name="Text" Content="Text" IsChecked="False" Margin="320,128,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Button x:Name="SelectType" Content="Select" HorizontalAlignment="Left" Margin="95,161,0,0" VerticalAlignment="Top" Width="64" Click="SelectType_Click"/>-->
+
+    </Grid>
+</Window>

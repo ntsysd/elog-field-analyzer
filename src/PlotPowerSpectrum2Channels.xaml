@@ -1,0 +1,34 @@
+﻿<Window x:Class="PlotTimeSeries.PlotPowerSpectrum2Channels"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlotTimeSeries"
+        mc:Ignorable="d"
+        Title="Power spectra" Height="287" Width="780" ResizeMode="CanMinimize">
+    <Grid Margin="0,0,10,-6">
+        <WpfPlot x:Name="PowerSpectrumCh0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="100" Width="520" Margin="60,  0.0,0,0" MouseMove="PowerSpectrumCh0_MouseMove" MouseLeave="PowerSpectrumCh0_MouseLeave" MouseDoubleClick="PowerSpectrumCh0_MouseDoubleClick"/>
+        <WpfPlot x:Name="PowerSpectrumCh1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="100" Width="520" Margin="60, 85.0,0,0" MouseMove="PowerSpectrumCh1_MouseMove" MouseLeave="PowerSpectrumCh1_MouseLeave" MouseDoubleClick="PowerSpectrumCh1_MouseDoubleClick"/>
+
+        <TextBlock x:Name="TextBlockCh0Max" HorizontalAlignment="Left" Margin="10, 20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="1" Width="60" TextAlignment="Right" Height="16"/>
+        <TextBlock x:Name="TextBlockCh0Min" HorizontalAlignment="Left" Margin="10, 70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="2" Width="60" TextAlignment="Right" Height="16"/>
+        <TextBlock x:Name="TextBlockCh1Max" HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="3" Width="60" TextAlignment="Right" Height="16"/>
+        <TextBlock x:Name="TextBlockCh1Min" HorizontalAlignment="Left" Margin="10,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="4" Width="60" TextAlignment="Right" Height="16"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="20,45,0,0"  TextWrapping="Wrap" Text="Ex" VerticalAlignment="Top" Height="20" Width="35"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,130,0,0" TextWrapping="Wrap" Text="Ey" VerticalAlignment="Top" Height="20" Width="35"/>
+
+        <TextBlock x:Name="TextBlockMinimumFrequency" HorizontalAlignment="Left" Margin="54,173,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlockMaximumFrequency" HorizontalAlignment="Left" Margin="556,173,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="294,182,0,0" TextWrapping="Wrap" Text="Frequency (Hz)" VerticalAlignment="Top"/>
+
+        <CheckBox x:Name="CheckBoxDetrend" Content="Detrend" HorizontalAlignment="Left" Margin="602,24,0,0" VerticalAlignment="Top" Checked="CheckBoxDetrend_Checked" Unchecked="CheckBoxDetrend_Unchecked"/>
+        <TextBlock HorizontalAlignment="Left" Margin="601,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="74"><Run Text="Lower limit"/><LineBreak/><Run Text="(Hz)"/></TextBlock>
+        <TextBox x:Name="TextBoxLowerFrequency" HorizontalAlignment="Left" Margin="685,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+        <TextBlock HorizontalAlignment="Left" Margin="602,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73"><Run Text="Upper limit"/><LineBreak/><Run Language="ja-jp" Text="(Hz)"/></TextBlock>
+        <TextBox x:Name="TextBoxUpperFrequency" HorizontalAlignment="Left" Margin="685,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64"/>
+        <Button x:Name="ButtonChangeFrequencyRange" Content="Change frequency range" HorizontalAlignment="Left" Margin="601,153,0,0" VerticalAlignment="Top" Width="146" Click="ButtonChangeFrequencyRange_Click" Height="24"/>
+        <TextBlock HorizontalAlignment="Left" Margin="586,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" Text="Frequency(Hz) at cursor position"/>
+        <TextBlock x:Name="TextBlockMousePointFrequency" HorizontalAlignment="Left" Margin="684,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73" Height="22" TextAlignment="Center"></TextBlock>
+    </Grid>
+</Window>

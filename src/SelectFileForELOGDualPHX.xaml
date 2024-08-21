@@ -1,0 +1,33 @@
+﻿<Window x:Class="PlotTimeSeries.SelectFileForELOGDualPHX"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlotTimeSeries"
+        mc:Ignorable="d"
+        Title="File selection" Height="282" Width="800" ResizeMode="CanMinimize">
+    <Grid Margin="0,0,0,-6">
+        <TextBlock HorizontalAlignment="Left" Margin="15,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ja-jp" Text="ELOG-DUAL"/></TextBlock>
+        <TextBox x:Name="TextBoxELOGDual" HorizontalAlignment="Left" Margin="86,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="644" Height="19" TextChanged="TextBoxELOGDual_TextChanged" RenderTransformOrigin="0.5,0.5"/>
+        <Button Content="…" HorizontalAlignment="Left" Margin="744,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.517,-0.173" Click="ButtonELOGDual_Click" Width="25"/>
+
+        <CheckBox x:Name="CheckBoxMagField" Content="Magnetic field data" HorizontalAlignment="Left" Margin="88,63,0,0" VerticalAlignment="Top" Checked="CheckBoxMagField_Checked" Unchecked="CheckBoxMagField_Unchecked"/>
+        <TextBlock HorizontalAlignment="Left" Margin="26,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ja-jp" Text="Hx, Hy"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="18,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ja-jp" Text="ELOG-MT"/></TextBlock>
+        <TextBox x:Name="TextBoxELOGMT" HorizontalAlignment="Left" Margin="86,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="644" Height="19" IsEnabled="False" IsReadOnly="True" TextChanged="TextBoxELOGMT_TextChanged" RenderTransformOrigin="0.5,0.5"/>
+        <Button Content="…" HorizontalAlignment="Left" Margin="744,93,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.517,-0.173" Click="ButtonELOGMT_Click" Width="25"/>
+
+        <CheckBox x:Name="CheckBoxRR" Content="Remote reference" HorizontalAlignment="Left" Margin="89,131,0,0" VerticalAlignment="Top" Checked="CheckBoxRR_Checked" IsEnabled="False" Unchecked="CheckBoxRR_Unchecked"/>
+        <TextBlock HorizontalAlignment="Left" Margin="23,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ja-jp" Text="Hrx, Hry"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="19,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ja-jp" Text="ELOG-MT"/></TextBlock>
+        <TextBox x:Name="TextBoxELOGMTRR" IsEnabled="False" IsReadOnly="True" HorizontalAlignment="Left" Margin="88,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="642" Height="19" TextChanged="TextBoxELOGMTRR_TextChanged" RenderTransformOrigin="0.5,0.5"/>
+        <Button Content="…" HorizontalAlignment="Left" Margin="744,164,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.517,-0.173" Click="ButtonELOGMTRR_Click" Width="25"/>
+
+        <Button x:Name="ReadFiles" Content="Read files" HorizontalAlignment="Left" Margin="90,208,0,0" VerticalAlignment="Top" Click="ReadFiles_Click" Width="99" Height="20"/>
+        <StackPanel Margin="456,55,0,0" Orientation=" Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <RadioButton x:Name="RadioBotton15Hz" Content="15 Hz" Width="80" IsChecked="True" Height="20"/>
+            <RadioButton x:Name="RadioBotton150Hz" Content="150 Hz"  Width="80" Height="20"/>
+            <RadioButton x:Name="RadioBotton2400Hz" Content="2400 Hz"  Width="80" Height="20"/>
+        </StackPanel>
+    </Grid>
+</Window>

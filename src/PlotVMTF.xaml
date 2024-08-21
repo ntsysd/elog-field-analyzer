@@ -1,0 +1,19 @@
+﻿<Window x:Class="PlotTimeSeries.PlotVMTF"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlotTimeSeries"
+        mc:Ignorable="d"
+        Title="Vertical magnetic transfer function (tipper)" Height="497" Width="534" ResizeMode="CanMinimize">
+    <Grid Margin="0,0,0,249">
+        <Grid Margin="0,0,10,-223">
+            <WpfPlot x:Name="SquaredCoherence" HorizontalAlignment="Left" Height="168" Margin="4,4,0,0" VerticalAlignment="Top" Width="443" MouseDoubleClick="SquaredCoherence_MouseDoubleClick"/>
+            <WpfPlot x:Name="VMTF" HorizontalAlignment="Left" Height="254" Margin="4,175,0,0" VerticalAlignment="Top" Width="443" MouseDoubleClick="VMTF_MouseDoubleClick"/>
+            <CheckBox x:Name="CheckBoxReTzx" Content="ReTzx" HorizontalAlignment="Left" Margin="434,217,0,0" VerticalAlignment="Top" IsChecked="True" Foreground="Red" Checked="CheckBoxReTzx_Checked" Unchecked="CheckBoxReTzx_UnChecked"/>
+            <CheckBox x:Name="CheckBoxImTzx" Content="ImTzx" HorizontalAlignment="Left" Margin="434,247,0,0" VerticalAlignment="Top" IsChecked="True" Foreground="Magenta" Checked="CheckBoxImTzx_Checked" Unchecked="CheckBoxImTzx_UnChecked"/>
+            <CheckBox x:Name="CheckBoxReTzy" Content="ReTzy" HorizontalAlignment="Left" Margin="434,277,0,0" VerticalAlignment="Top" IsChecked="True" Foreground="Blue" Checked="CheckBoxReTzy_Checked" Unchecked="CheckBoxReTzy_UnChecked"/>
+            <CheckBox x:Name="CheckBoxImTzy" Content="ImTzy" HorizontalAlignment="Left" Margin="434,307,0,0" VerticalAlignment="Top" IsChecked="True" Foreground="Cyan"  Checked="CheckBoxImTzy_Checked" Unchecked="CheckBoxImTzy_UnChecked"/>
+        </Grid>
+    </Grid>
+</Window>
