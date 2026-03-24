@@ -7,7 +7,7 @@ It utilizes TRACMT (https://github.com/yoshiya-usui/TRACMT) developed by Dr. Yos
 .NET Framework 6.0 running Windows 10 or higher.
 
 ## Installation
-Please copy all files under the “bin” folder to an install folder on your PC.
+Please copy the “bin” folder and all files within it to an install folder on your PC.
 
 Notes:
 
