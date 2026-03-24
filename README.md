@@ -7,10 +7,9 @@ It utilizes TRACMT (https://github.com/yoshiya-usui/TRACMT) developed by Dr. Yos
 .NET Framework 6.0 running Windows 10 or higher.
 
 ## Installation
-.NET 6.0 Desktop Runtime and Visual C++ redistributable libraries should be pre-installed.
-
 Please copy all files under the “bin” folder to an install folder on your PC. 
-
+Notes:
+.NET 6.0 Desktop Runtime and Visual C++ redistributable libraries should be pre-installed.
 The name of the install folder should NOT contain non-ASCII characters (e.g., Japanese characters).
 
 ## Functional overview
