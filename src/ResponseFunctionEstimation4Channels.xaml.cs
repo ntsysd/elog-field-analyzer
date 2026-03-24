@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ScottPlot.Palettes;
 
 namespace PlotTimeSeries
 {
@@ -175,6 +176,11 @@ namespace PlotTimeSeries
                 MessageBox.Show("No work folder is selected.", "Error", MessageBoxButton.OK);
                 return;
             }
+            if (!Directory.Exists(@TextBoxWorkFolder.Text))
+            {
+                MessageBox.Show("Work folder " + TextBoxWorkFolder.Text + " does not exist.", "Error", MessageBoxButton.OK);
+                return;
+            }
             WriteMessage("Start estimation.");
             var process = new System.Diagnostics.Process();
             process.StartInfo.WorkingDirectory = TextBoxWorkFolder.Text;
@@ -238,13 +244,30 @@ namespace PlotTimeSeries
         {
             using (var writer = new StreamWriter(System.IO.Path.Combine(TextBoxWorkFolder.Text, m_calibrationFileForEx)))
             {
-                writer.WriteLine(TextBoxDipoleLengthNS.Text);
-                writer.WriteLine(0);
+                double dipoleLength;
+                if (double.TryParse(TextBoxDipoleLengthNS.Text, out dipoleLength))
+                {
+                    writer.WriteLine(-1000.0 / dipoleLength);
+                    writer.WriteLine(0);
+                }
+                else {
+                    MessageBox.Show("Dipole length (" + TextBoxDipoleLengthNS.Text + ") is not a number.", "Error", MessageBoxButton.OK);
+                    return;
+                }
             }
             using (var writer = new StreamWriter(System.IO.Path.Combine(TextBoxWorkFolder.Text, m_calibrationFileForEy)))
             {
-                writer.WriteLine(TextBoxDipoleLengthEW.Text);
-                writer.WriteLine(0);
+                double dipoleLength;
+                if (double.TryParse(TextBoxDipoleLengthEW.Text, out dipoleLength))
+                {
+                    writer.WriteLine(-1000.0 / dipoleLength);
+                    writer.WriteLine(0);
+                }
+                else
+                {
+                    MessageBox.Show("Dipole length (" + TextBoxDipoleLengthEW.Text + ") is not a number.", "Error", MessageBoxButton.OK);
+                    return;
+                }
             }
         }
 

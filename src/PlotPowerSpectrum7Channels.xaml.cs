@@ -261,6 +261,7 @@ namespace PlotTimeSeries
                             {
                                 PowerSpectrumCh0.Plot.AddVerticalLine(x: log10Freq, color: System.Drawing.Color.Gray, width: 1);
                             }
+                            PowerSpectrumCh0.Plot.XAxis.SetBoundary(lowerLogFrequency, upperLogFrequency);
                             PowerSpectrumCh0.Plot.XAxis.TickLabelFormat(Util.logTickLabels);
                             PowerSpectrumCh0.Plot.XAxis.MinorLogScale(true);
                             PowerSpectrumCh0.Plot.XAxis.MajorGrid(true);
@@ -280,6 +281,7 @@ namespace PlotTimeSeries
                             {
                                 PowerSpectrumCh1.Plot.AddVerticalLine(x: log10Freq, color: System.Drawing.Color.Gray, width: 1);
                             }
+                            PowerSpectrumCh1.Plot.XAxis.SetBoundary(lowerLogFrequency, upperLogFrequency);
                             PowerSpectrumCh1.Plot.XAxis.TickLabelFormat(Util.logTickLabels);
                             PowerSpectrumCh1.Plot.XAxis.MinorLogScale(true);
                             PowerSpectrumCh1.Plot.XAxis.MajorGrid(true);
@@ -299,6 +301,7 @@ namespace PlotTimeSeries
                             {
                                 PowerSpectrumCh2.Plot.AddVerticalLine(x: log10Freq, color: System.Drawing.Color.Gray, width: 1);
                             }
+                            PowerSpectrumCh2.Plot.XAxis.SetBoundary(lowerLogFrequency, upperLogFrequency);
                             PowerSpectrumCh2.Plot.XAxis.TickLabelFormat(Util.logTickLabels);
                             PowerSpectrumCh2.Plot.XAxis.MinorLogScale(true);
                             PowerSpectrumCh2.Plot.XAxis.MajorGrid(true);
@@ -318,6 +321,7 @@ namespace PlotTimeSeries
                             {
                                 PowerSpectrumCh3.Plot.AddVerticalLine(x: log10Freq, color: System.Drawing.Color.Gray, width: 1);
                             }
+                            PowerSpectrumCh3.Plot.XAxis.SetBoundary(lowerLogFrequency, upperLogFrequency);
                             PowerSpectrumCh3.Plot.XAxis.TickLabelFormat(Util.logTickLabels);
                             PowerSpectrumCh3.Plot.XAxis.MinorLogScale(true);
                             PowerSpectrumCh3.Plot.XAxis.MajorGrid(true);
@@ -337,6 +341,7 @@ namespace PlotTimeSeries
                             {
                                 PowerSpectrumCh4.Plot.AddVerticalLine(x: log10Freq, color: System.Drawing.Color.Gray, width: 1);
                             }
+                            PowerSpectrumCh4.Plot.XAxis.SetBoundary(lowerLogFrequency, upperLogFrequency);
                             PowerSpectrumCh4.Plot.XAxis.TickLabelFormat(Util.logTickLabels);
                             PowerSpectrumCh4.Plot.XAxis.MinorLogScale(true);
                             PowerSpectrumCh4.Plot.XAxis.MajorGrid(true);
@@ -356,6 +361,7 @@ namespace PlotTimeSeries
                             {
                                 PowerSpectrumCh5.Plot.AddVerticalLine(x: log10Freq, color: System.Drawing.Color.Gray, width: 1);
                             }
+                            PowerSpectrumCh5.Plot.XAxis.SetBoundary(lowerLogFrequency, upperLogFrequency);
                             PowerSpectrumCh5.Plot.XAxis.TickLabelFormat(Util.logTickLabels);
                             PowerSpectrumCh5.Plot.XAxis.MinorLogScale(true);
                             PowerSpectrumCh5.Plot.XAxis.MajorGrid(true);
@@ -375,6 +381,7 @@ namespace PlotTimeSeries
                             {
                                 PowerSpectrumCh6.Plot.AddVerticalLine(x: log10Freq, color: System.Drawing.Color.Gray, width: 1);
                             }
+                            PowerSpectrumCh6.Plot.XAxis.SetBoundary(lowerLogFrequency, upperLogFrequency);
                             PowerSpectrumCh6.Plot.XAxis.TickLabelFormat(Util.logTickLabels);
                             PowerSpectrumCh6.Plot.XAxis.MinorLogScale(true);
                             PowerSpectrumCh6.Plot.XAxis.MajorGrid(true);
@@ -427,8 +434,7 @@ namespace PlotTimeSeries
             if (m_plot[0] != null)
             {
                 (double mouseCoordX, double mouseCoordY) = PowerSpectrumCh0.GetMouseCoordinates();
-                double ratio = PowerSpectrumCh0.Plot.XAxis.Dims.PxPerUnit / PowerSpectrumCh0.Plot.YAxis.Dims.PxPerUnit;
-                (double log10Freq, double log10Power, int pointIndex) = m_plot[0].GetPointNearest(mouseCoordX, mouseCoordY, ratio);
+                (double log10Freq, double log10Power, int pointIndex) = m_plot[0].GetPointNearestX(mouseCoordX);
                 TextBlockMousePointFrequency.Text = (Math.Pow(10, log10Freq)).ToString("G3");
             }
         }
@@ -438,8 +444,7 @@ namespace PlotTimeSeries
             if (m_plot[1] != null)
             {
                 (double mouseCoordX, double mouseCoordY) = PowerSpectrumCh1.GetMouseCoordinates();
-                double ratio = PowerSpectrumCh1.Plot.XAxis.Dims.PxPerUnit / PowerSpectrumCh1.Plot.YAxis.Dims.PxPerUnit;
-                (double log10Freq, double log10Power, int pointIndex) = m_plot[1].GetPointNearest(mouseCoordX, mouseCoordY, ratio);
+                (double log10Freq, double log10Power, int pointIndex) = m_plot[1].GetPointNearestX(mouseCoordX);
                 TextBlockMousePointFrequency.Text = (Math.Pow(10, log10Freq)).ToString("G3");
             }
         }
@@ -449,8 +454,7 @@ namespace PlotTimeSeries
             if (m_plot[2] != null)
             {
                 (double mouseCoordX, double mouseCoordY) = PowerSpectrumCh2.GetMouseCoordinates();
-                double ratio = PowerSpectrumCh2.Plot.XAxis.Dims.PxPerUnit / PowerSpectrumCh2.Plot.YAxis.Dims.PxPerUnit;
-                (double log10Freq, double log10Power, int pointIndex) = m_plot[2].GetPointNearest(mouseCoordX, mouseCoordY, ratio);
+                (double log10Freq, double log10Power, int pointIndex) = m_plot[2].GetPointNearestX(mouseCoordX);
                 TextBlockMousePointFrequency.Text = (Math.Pow(10, log10Freq)).ToString("G3");
             }
         }
@@ -460,8 +464,7 @@ namespace PlotTimeSeries
             if (m_plot[3] != null)
             {
                 (double mouseCoordX, double mouseCoordY) = PowerSpectrumCh3.GetMouseCoordinates();
-                double ratio = PowerSpectrumCh3.Plot.XAxis.Dims.PxPerUnit / PowerSpectrumCh3.Plot.YAxis.Dims.PxPerUnit;
-                (double log10Freq, double log10Power, int pointIndex) = m_plot[3].GetPointNearest(mouseCoordX, mouseCoordY, ratio);
+                (double log10Freq, double log10Power, int pointIndex) = m_plot[3].GetPointNearestX(mouseCoordX);
                 TextBlockMousePointFrequency.Text = (Math.Pow(10, log10Freq)).ToString("G3");
             }
         }
@@ -471,8 +474,7 @@ namespace PlotTimeSeries
             if (m_plot[4] != null)
             {
                 (double mouseCoordX, double mouseCoordY) = PowerSpectrumCh4.GetMouseCoordinates();
-                double ratio = PowerSpectrumCh4.Plot.XAxis.Dims.PxPerUnit / PowerSpectrumCh4.Plot.YAxis.Dims.PxPerUnit;
-                (double log10Freq, double log10Power, int pointIndex) = m_plot[4].GetPointNearest(mouseCoordX, mouseCoordY, ratio);
+                (double log10Freq, double log10Power, int pointIndex) = m_plot[4].GetPointNearestX(mouseCoordX);
                 TextBlockMousePointFrequency.Text = (Math.Pow(10, log10Freq)).ToString("G3");
             }
         }
@@ -482,8 +484,7 @@ namespace PlotTimeSeries
             if (m_plot[5] != null)
             {
                 (double mouseCoordX, double mouseCoordY) = PowerSpectrumCh5.GetMouseCoordinates();
-                double ratio = PowerSpectrumCh5.Plot.XAxis.Dims.PxPerUnit / PowerSpectrumCh5.Plot.YAxis.Dims.PxPerUnit;
-                (double log10Freq, double log10Power, int pointIndex) = m_plot[5].GetPointNearest(mouseCoordX, mouseCoordY, ratio);
+                (double log10Freq, double log10Power, int pointIndex) = m_plot[5].GetPointNearestX(mouseCoordX);
                 TextBlockMousePointFrequency.Text = (Math.Pow(10, log10Freq)).ToString("G3");
             }
         }
@@ -493,8 +494,7 @@ namespace PlotTimeSeries
             if (m_plot[6] != null)
             {
                 (double mouseCoordX, double mouseCoordY) = PowerSpectrumCh6.GetMouseCoordinates();
-                double ratio = PowerSpectrumCh6.Plot.XAxis.Dims.PxPerUnit / PowerSpectrumCh6.Plot.YAxis.Dims.PxPerUnit;
-                (double log10Freq, double log10Power, int pointIndex) = m_plot[6].GetPointNearest(mouseCoordX, mouseCoordY, ratio);
+                (double log10Freq, double log10Power, int pointIndex) = m_plot[6].GetPointNearestX(mouseCoordX);
                 TextBlockMousePointFrequency.Text = (Math.Pow(10, log10Freq)).ToString("G3");
             }
         }

@@ -284,40 +284,6 @@ namespace PlotTimeSeries
             TextBoxDownsamplingRate.IsEnabled = false;
             TextBoxDownsamplingRate.IsReadOnly = true;
         }
-
-        protected void MakeCalibrationFilesForExAndEy()
-        {
-            using (var writer = new StreamWriter(System.IO.Path.Combine(TextBoxWorkFolder.Text, m_calibrationFileForEx)))
-            {
-                double dipoleLength;
-                if (double.TryParse(TextBoxDipoleLengthNS.Text, out dipoleLength))
-                {
-                    writer.WriteLine(-1000.0 / dipoleLength);
-                    writer.WriteLine(0);
-                }
-                else
-                {
-                    MessageBox.Show("Dipole length (" + TextBoxDipoleLengthNS.Text + ") is not a number.", "Error", MessageBoxButton.OK);
-                    return;
-                }
-            }
-            using (var writer = new StreamWriter(System.IO.Path.Combine(TextBoxWorkFolder.Text, m_calibrationFileForEy)))
-            {
-                double dipoleLength;
-                if (double.TryParse(TextBoxDipoleLengthEW.Text, out dipoleLength))
-                {
-                    writer.WriteLine(-1000.0 / dipoleLength);
-                    writer.WriteLine(0);
-                }
-                else
-                {
-                    MessageBox.Show("Dipole length (" + TextBoxDipoleLengthEW.Text + ") is not a number.", "Error", MessageBoxButton.OK);
-                    return;
-                }
-            }
-
-        }
-
         protected void WriteMessage(string message)
         {
             TextBlockMessage.Text = message;

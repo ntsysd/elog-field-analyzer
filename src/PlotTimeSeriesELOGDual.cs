@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -68,9 +69,21 @@ namespace PlotTimeSeries
                 {
                     DateTime dateDimeCur = Util.ConvELOGFileNameToDateTime(file.FullName);
                     TimeSpan offset = dateDimeCur - dateTimeMin;
-                    if (!Util.ReadOneELOGDualFile(file.FullName, m_samplingFrequencyInt * (int)offset.TotalSeconds, m_samplingFrequencyInt, ref m_values[0], ref m_values[1]))
+                    int counter = 0;
+                    if (!Util.ReadOneELOGDualFile(file.FullName, m_samplingFrequencyInt * (int)offset.TotalSeconds, m_samplingFrequencyInt, ref m_values[0], ref m_values[1], out counter))
                     {
                         return false;
+                    }
+                    if (DateTime.Compare(Util.ConvELOGFileNameToDateTime(file.FullName).AddHours(1), dateTimeMax) == 0 && counter < 3600 * m_samplingFrequencyInt)
+                    {
+                        numSamples -= (3600 * m_samplingFrequencyInt - counter);
+                        diff = new TimeSpan(0, 0, 0, (int)((double)numSamples / m_samplingFrequency));
+                        dateTimeMax = dateTimeMin + diff;
+                        for (int ch = 0; ch < 2; ch++)
+                        {
+                            Array.Resize(ref m_values[ch], numSamples);
+                            m_timeSpan[ch] = diff;
+                        }
                     }
                 }
                 m_directoryName[0] = directoryName;
@@ -120,9 +133,21 @@ namespace PlotTimeSeries
                 {
                     DateTime dateDimeCur = Util.ConvELOGFileNameToDateTime(file.FullName);
                     TimeSpan offset = dateDimeCur - dateTimeMin;
-                    if (!Util.ReadOneELOGMTFileHxHyOnly(file.FullName, m_samplingFrequencyInt * (int)offset.TotalSeconds, m_samplingFrequencyInt, ref m_values[2], ref m_values[3]))
+                    int counter = 0;
+                    if (!Util.ReadOneELOGMTFileHxHyOnly(file.FullName, m_samplingFrequencyInt * (int)offset.TotalSeconds, m_samplingFrequencyInt, ref m_values[2], ref m_values[3], out counter))
                     {
                         return false;
+                    }
+                    if (DateTime.Compare(Util.ConvELOGFileNameToDateTime(file.FullName).AddHours(1), dateTimeMax) == 0 && counter < 3600 * m_samplingFrequencyInt)
+                    {
+                        numSamples -= (3600 * m_samplingFrequencyInt - counter);
+                        diff = new TimeSpan(0, 0, 0, (int)((double)numSamples / m_samplingFrequency));
+                        dateTimeMax = dateTimeMin + diff;
+                        for (int ch = 2; ch < 4; ch++)
+                        {
+                            Array.Resize(ref m_values[ch], numSamples);
+                            m_timeSpan[ch] = diff;
+                        }
                     }
                 }
                 for (int ch = 2; ch < 4; ch++)

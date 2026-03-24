@@ -64,9 +64,21 @@ namespace PlotTimeSeries
                 {
                     DateTime dateDimeCur = Util.ConvELOGFileNameToDateTime(file.FullName);
                     TimeSpan offset = dateDimeCur - dateTimeMin;
-                    if (!Util.ReadOneELOGMTFile(file.FullName, m_samplingFrequencyInt * (int)offset.TotalSeconds, m_samplingFrequencyInt, ref m_values[0], ref m_values[1], ref m_values[2], ref m_values[3], ref m_values[4]))
+                    int counter = 0;
+                    if (!Util.ReadOneELOGMTFile(file.FullName, m_samplingFrequencyInt * (int)offset.TotalSeconds, m_samplingFrequencyInt, ref m_values[0], ref m_values[1], ref m_values[2], ref m_values[3], ref m_values[4], out counter))
                     {
                         return false;
+                    }
+                    if (DateTime.Compare(Util.ConvELOGFileNameToDateTime(file.FullName).AddHours(1), dateTimeMax) == 0 && counter < 3600 * m_samplingFrequencyInt)
+                    {
+                        numSamples -= (3600 * m_samplingFrequencyInt - counter);
+                        diff = new TimeSpan(0, 0, 0, (int)((double)numSamples / m_samplingFrequency));
+                        dateTimeMax = dateTimeMin + diff;
+                        for (int ch = 0; ch < 5; ch++)
+                        {
+                            Array.Resize(ref m_values[ch], numSamples);
+                            m_timeSpan[ch] = diff;
+                        }
                     }
                 }
                 for (int ch = 0; ch < 5; ch++)
@@ -118,9 +130,21 @@ namespace PlotTimeSeries
                 {
                     DateTime dateDimeCur = Util.ConvELOGFileNameToDateTime(file.FullName);
                     TimeSpan offset = dateDimeCur - dateTimeMin;
-                    if (!Util.ReadOneELOGMTFileHxHyOnly(file.FullName, m_samplingFrequencyInt * (int)offset.TotalSeconds, m_samplingFrequencyInt, ref m_values[5], ref m_values[6]))
+                    int counter = 0;
+                    if (!Util.ReadOneELOGMTFileHxHyOnly(file.FullName, m_samplingFrequencyInt * (int)offset.TotalSeconds, m_samplingFrequencyInt, ref m_values[5], ref m_values[6], out counter))
                     {
                         return false;
+                    }
+                    if (DateTime.Compare(Util.ConvELOGFileNameToDateTime(file.FullName).AddHours(1), dateTimeMax) == 0 && counter < 3600 * m_samplingFrequencyInt)
+                    {
+                        numSamples -= (3600 * m_samplingFrequencyInt - counter);
+                        diff = new TimeSpan(0, 0, 0, (int)((double)numSamples / m_samplingFrequency));
+                        dateTimeMax = dateTimeMin + diff;
+                        for (int ch = 5; ch < 7; ch++)
+                        {
+                            Array.Resize(ref m_values[ch], numSamples);
+                            m_timeSpan[ch] = diff;
+                        }
                     }
                 }
                 for (int ch = 5; ch < 7; ch++)
@@ -209,7 +233,7 @@ namespace PlotTimeSeries
                     return;
                 }
             }
-            var responseFunctionEstimation = new ResponseFunctionEstimationELOGMTPHX(m_directoryName, m_fileName, m_samplingFrequencyInt, startIndex, endIndex);
+            var responseFunctionEstimation = new ResponseFunctionEstimationELOGMTPHXRR(m_directoryName, m_fileName, m_samplingFrequencyInt, startIndex, endIndex);
             responseFunctionEstimation.ShowDialog();
         }
     }

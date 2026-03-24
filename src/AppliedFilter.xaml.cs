@@ -236,7 +236,7 @@ namespace PlotTimeSeries
                     }
                 }
                 m_plot = FrequencyCharacteristic.Plot.AddScatter(logFreqBounded.ToArray(), logAmplitudeBounded.ToArray(), markerSize: 0, lineWidth: 1);
-                FrequencyCharacteristic.Plot.XLabel("Period (sec)");
+                FrequencyCharacteristic.Plot.XLabel("Frequency (Hz)");
                 FrequencyCharacteristic.Plot.XAxis.TickLabelFormat(Util.logTickLabels);
                 FrequencyCharacteristic.Plot.XAxis.MinorLogScale(true);
                 FrequencyCharacteristic.Plot.XAxis.MajorGrid(true);

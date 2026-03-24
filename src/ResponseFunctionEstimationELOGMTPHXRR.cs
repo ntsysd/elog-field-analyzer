@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Windows;
 
 namespace PlotTimeSeries
 {
-    internal class ResponseFunctionEstimationELOGDualAndATSRR : ResponseFunctionEstimationELOGDualAndATS
+    internal class ResponseFunctionEstimationELOGMTPHXRR : ResponseFunctionEstimation5Channels
     {
-
-        public ResponseFunctionEstimationELOGDualAndATSRR(string[] directoryName, string[] fileName, int samplingFrequency, int[] startIndex, int[] endIndex, bool isELOG1K)
-            : base(directoryName, fileName, samplingFrequency, startIndex, endIndex, isELOG1K)
+        public ResponseFunctionEstimationELOGMTPHXRR(string[] directoryName, string[] fileName, int samplingFrequency, int[] startIndex, int[] endIndex)
+            : base(directoryName, fileName, samplingFrequency, startIndex, endIndex)
         {
-            m_numOfChannels = 6;
             RadioButtonRRMS.IsHitTestVisible = true;
             RadioButtonRRMS.IsTabStop = true;
+            m_numOfChannels = 7;
         }
 
         override protected void MakeInputFileForTRACMT()
@@ -42,11 +42,22 @@ namespace PlotTimeSeries
             using (var writer = new StreamWriter(filePath))
             {
                 writer.WriteLine("NUM_OUT");
-                writer.WriteLine("2");
+                if ((bool)RadioButtonImpedanceAndTipper.IsChecked)
+                {
+                    writer.WriteLine("3");
+                }
+                else if ((bool)RadioButtonImpedance.IsChecked)
+                {
+                    writer.WriteLine("2");
+                }
+                else
+                {
+                    writer.WriteLine("1");
+                }
                 writer.WriteLine("NUM_RR");
                 writer.WriteLine(2);
                 writer.WriteLine("SAMPLING_FREQ");
-                writer.WriteLine(m_samplingFrequencyInt);
+                writer.WriteLine(m_samplingFrequency);
                 writer.WriteLine("NUM_SECTION");
                 writer.WriteLine(1);
                 writer.WriteLine("SEGMENT");
@@ -73,15 +84,75 @@ namespace PlotTimeSeries
                 writer.WriteLine("0.5");
                 writer.WriteLine("AZIMUTH");
                 double azimuth = double.Parse(TextBoxDecliniation.Text);
-                writer.WriteLine(azimuth.ToString() + " " + (azimuth + 90.0).ToString());
+                if ((bool)RadioButtonImpedanceAndTipper.IsChecked)
+                {
+                    writer.WriteLine(azimuth.ToString() + " " + (azimuth + 90.0).ToString());
+                    writer.WriteLine("0.0");
+                }
+                else if ((bool)RadioButtonImpedance.IsChecked)
+                {
+                    writer.WriteLine(azimuth.ToString() + " " + (azimuth + 90.0).ToString());
+                }
+                else
+                {
+                    writer.WriteLine("0.0");
+                }
                 writer.WriteLine(azimuth.ToString() + " " + (azimuth + 90.0).ToString());
                 writer.WriteLine(azimuth.ToString() + " " + (azimuth + 90.0).ToString());
                 writer.WriteLine("ROTATION");
                 writer.WriteLine(TextBoxRotation.Text);
-                writer.WriteLine("ATS_BINARY");
-                writer.WriteLine("ATS_CAL");
-                writer.WriteLine(TextBoxDipoleLengthNS.Text);
-                writer.WriteLine(TextBoxDipoleLengthEW.Text);
+                writer.WriteLine("ELOGMT_BINARY");
+                writer.WriteLine("ELOGMT_READ_OPTION");
+                if ((bool)RadioButtonImpedanceAndTipper.IsChecked)
+                {
+                    writer.WriteLine(0);
+                }
+                else if ((bool)RadioButtonImpedance.IsChecked)
+                {
+                    writer.WriteLine(1);
+                }
+                else
+                {
+                    writer.WriteLine(2);
+                }
+                writer.WriteLine("CAL_FILES");
+                if ((bool)RadioButtonImpedanceAndTipper.IsChecked)
+                {
+                    MakeCalibrationFilesForExAndEy();
+                    writer.WriteLine(m_calibrationFileForEx);
+                    writer.WriteLine(m_calibrationFileForEy);
+                    if (String.IsNullOrEmpty(TextBoxCoilCalHz.Text))
+                    {
+                        MessageBox.Show("Calibration file for Hz is not selected.", "Error", MessageBoxButton.OK);
+                        return;
+                    }
+                    if (!File.Exists(TextBoxCoilCalHz.Text))
+                    {
+                        MessageBox.Show("Calibration file for Hz (" + TextBoxCoilCalHz.Text + ") does not exist.", "Error", MessageBoxButton.OK);
+                        return;
+                    }
+                    writer.WriteLine(TextBoxCoilCalHz.Text);
+                }
+                else if ((bool)RadioButtonImpedance.IsChecked)
+                {
+                    MakeCalibrationFilesForExAndEy();
+                    writer.WriteLine(m_calibrationFileForEx);
+                    writer.WriteLine(m_calibrationFileForEy);
+                }
+                else
+                {
+                    if (String.IsNullOrEmpty(TextBoxCoilCalHz.Text))
+                    {
+                        MessageBox.Show("Calibration file for Hz is not selected.", "Error", MessageBoxButton.OK);
+                        return;
+                    }
+                    if (!File.Exists(TextBoxCoilCalHz.Text))
+                    {
+                        MessageBox.Show("Calibration file for Hz (" + TextBoxCoilCalHz.Text + ") does not exist.", "Error", MessageBoxButton.OK);
+                        return;
+                    }
+                    writer.WriteLine(TextBoxCoilCalHz.Text);
+                }
                 if (String.IsNullOrEmpty(TextBoxCoilCalHx.Text))
                 {
                     MessageBox.Show("Calibration file for Hx is not selected.", "Error", MessageBoxButton.OK);
@@ -104,37 +175,8 @@ namespace PlotTimeSeries
                 }
                 writer.WriteLine(TextBoxCoilCalHx.Text);
                 writer.WriteLine(TextBoxCoilCalHy.Text);
-                writer.WriteLine(1);
-                writer.WriteLine(1);
-                writer.WriteLine("ELOGDUAL_BINARY");
-                writer.WriteLine("ELOGDUAL_CAL");
-                if (m_isELOG1K)
-                {
-                    writer.WriteLine(0);
-                }
-                else
-                {
-                    writer.WriteLine(1);
-                }
-                if (String.IsNullOrEmpty(TextBoxELOGCal.Text))
-                {
-                    MessageBox.Show("ELOG calibration file is not selected.", "Error", MessageBoxButton.OK);
-                    return;
-                }
-                writer.WriteLine(TextBoxELOGCal.Text);
-                writer.WriteLine("5.17");
-                if (m_isELOG1K)
-                {
-                    writer.WriteLine("ELOGDUAL_READ_OPTION");
-                    writer.WriteLine(1);
-                }
-                writer.WriteLine("LOGGER_CAL_DIRECTORY");
-                if (String.IsNullOrEmpty(TextBoxLoggerCalFilesFolder.Text))
-                {
-                    MessageBox.Show("Folder storing logger calibration files is not selected.", "Error", MessageBoxButton.OK);
-                    return;
-                }
-                writer.WriteLine(TextBoxLoggerCalFilesFolder.Text);
+                writer.WriteLine(TextBoxCoilCalHx.Text);
+                writer.WriteLine(TextBoxCoilCalHy.Text);
                 writer.WriteLine("PROCEDURE");
                 if ((bool)RadioButtonRRMS.IsChecked)
                 {
@@ -186,19 +228,27 @@ namespace PlotTimeSeries
                 }
                 writer.WriteLine("DATA_FILES");
                 writer.WriteLine(totalDataLength);
-                if (String.IsNullOrEmpty(m_directoryName[0]))
+                if ((bool)RadioButtonImpedanceAndTipper.IsChecked || (bool)RadioButtonImpedance.IsChecked)
                 {
-                    MessageBox.Show("ELOG data folder is not specified.", "Error", MessageBoxButton.OK);
-                    return;
+                    for (int ch = 0; ch < 2; ch++)
+                    {
+                        writer.WriteLine(System.IO.Path.Combine(m_directoryName[ch], "*.dat"));
+                        writer.WriteLine(m_startIndex[ch]);
+                    }
                 }
-                for (int ch = 0; ch < 2; ch++)
+                if ((bool)RadioButtonImpedanceAndTipper.IsChecked || (bool)RadioButtonTipper.IsChecked)
+                {
+                    writer.WriteLine(System.IO.Path.Combine(m_directoryName[4], "*.dat"));
+                    writer.WriteLine(m_startIndex[4]);
+                }
+                for (int ch = 2; ch < 4; ch++)
                 {
                     writer.WriteLine(System.IO.Path.Combine(m_directoryName[ch], "*.dat"));
                     writer.WriteLine(m_startIndex[ch]);
                 }
-                for (int ch = 2; ch < 6; ch++)
+                for (int ch = 5; ch < 7; ch++)
                 {
-                    writer.WriteLine(System.IO.Path.Combine(m_directoryName[ch], m_fileName[ch]));
+                    writer.WriteLine(System.IO.Path.Combine(m_directoryName[ch], "*.dat"));
                     writer.WriteLine(m_startIndex[ch]);
                 }
                 writer.WriteLine("END");

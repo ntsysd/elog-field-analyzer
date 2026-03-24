@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -140,8 +141,9 @@ namespace PlotTimeSeries
             return true;
         }
 
-        static public bool ReadOneELOGDualFile(string datFileName, int offset, int samplingFrequency, ref double[] valuesEx, ref double[] valuesEy)
+        static public bool ReadOneELOGDualFile(string datFileName, int offset, int samplingFrequency, ref double[] valuesEx, ref double[] valuesEy, out int counter)
         {
+            counter = 0;
             if (String.IsNullOrEmpty(datFileName))
             {
                 return false;
@@ -154,7 +156,6 @@ namespace PlotTimeSeries
                     int AD_BYTES = 3;
                     int dataSize = AD_CH * samplingFrequency * AD_BYTES;
                     byte[] data = new byte[dataSize];
-                    int counter = 0;
                     double factor = 2500.0 / Math.Pow(2, 23);// Dynamic range +/- 2500 mV
                     while (true)
                     {
@@ -188,8 +189,9 @@ namespace PlotTimeSeries
             return true;
         }
 
-        static public bool ReadOneELOGMTFile(string datFileName, int offset, int samplingFrequency, ref double[] valuesEx, ref double[] valuesEy, ref double[] valuesHx, ref double[] valuesHy, ref double[] valuesHz)
+        static public bool ReadOneELOGMTFile(string datFileName, int offset, int samplingFrequency, ref double[] valuesEx, ref double[] valuesEy, ref double[] valuesHx, ref double[] valuesHy, ref double[] valuesHz, out int counter)
         {
+            counter = 0;
             if (String.IsNullOrEmpty(datFileName))
             {
                 return false;
@@ -204,7 +206,6 @@ namespace PlotTimeSeries
                     double MV_LSB_H = 10000.0 / 8388608.0;
                     int dataSize = AD_CH * samplingFrequency * AD_BYTES;
                     byte[] data = new byte[dataSize];
-                    int counter = 0;
                     double factor = 2500.0 / Math.Pow(2, 23);// Dynamic range +/- 2500 mV
                     while (true)
                     {
@@ -248,8 +249,9 @@ namespace PlotTimeSeries
             return true;
         }
 
-        static public bool ReadOneELOGMTFileHxHyOnly(string datFileName, int offset, int samplingFrequency, ref double[] valuesHx, ref double[] valuesHy)
+        static public bool ReadOneELOGMTFileHxHyOnly(string datFileName, int offset, int samplingFrequency, ref double[] valuesHx, ref double[] valuesHy, out int counter)
         {
+            counter = 0;
             if (String.IsNullOrEmpty(datFileName))
             {
                 return false;
@@ -264,7 +266,6 @@ namespace PlotTimeSeries
                     double MV_LSB_H = 10000.0 / 8388608.0;
                     int dataSize = AD_CH * samplingFrequency * AD_BYTES;
                     byte[] data = new byte[dataSize];
-                    int counter = 0;
                     double factor = 2500.0 / Math.Pow(2, 23);// Dynamic range +/- 2500 mV
                     while (true)
                     {

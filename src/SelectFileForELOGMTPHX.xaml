@@ -13,7 +13,7 @@
 
         <CheckBox x:Name="CheckBoxRR" Content="Remote reference" HorizontalAlignment="Left" Margin="70,59,0,0" VerticalAlignment="Top" Checked="CheckBoxRR_Checked" Unchecked="CheckBoxRR_Unchecked"/>
         <TextBlock HorizontalAlignment="Left" Margin="15,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="ja-jp" Text="Remote"/></TextBlock>
-        <TextBox x:Name="TextBoxELOGMTRR" IsEnabled="False" IsReadOnly="True" HorizontalAlignment="Center" Margin="0,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="660" Height="19" TextChanged="TextBoxELOGMTRR_TextChanged" RenderTransformOrigin="0.5,0.5"/>
+        <TextBox x:Name="TextBoxELOGMTRR" IsEnabled="False" IsReadOnly="True" HorizontalAlignment="Left" Margin="70,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="660" Height="19" TextChanged="TextBoxELOGMTRR_TextChanged" RenderTransformOrigin="0.5,0.5"/>
         <Button Content="…" HorizontalAlignment="Left" Margin="744,97,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.517,-0.173" Click="ButtonELOGMTRR_Click" Width="25"/>
 
         <Button x:Name="ReadFiles" Content="Read files" HorizontalAlignment="Left" Margin="86,138,0,0" VerticalAlignment="Top" Click="ReadFiles_Click" Width="99" Height="20"/>

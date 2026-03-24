@@ -14,7 +14,7 @@ namespace PlotTimeSeries
     public static class Common
     {
 
-        public static readonly string VERSION = "ELOG Field Analyzer Ver. 1.0.0";
+        public static readonly string VERSION = "ELOG Field Analyzer Ver. 1.1.0";
 
     }
 

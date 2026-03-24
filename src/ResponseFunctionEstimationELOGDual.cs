@@ -34,6 +34,11 @@ namespace PlotTimeSeries
                 MessageBox.Show("No work folder is selected.", "Error", MessageBoxButton.OK);
                 return;
             }
+            if (!Directory.Exists(@TextBoxWorkFolder.Text))
+            {
+                MessageBox.Show("Work folder " + TextBoxWorkFolder.Text + " does not exist.", "Error", MessageBoxButton.OK);
+                return;
+            }
             var filePath = System.IO.Path.Combine(TextBoxWorkFolder.Text, "param.dat");
             using (var writer = new StreamWriter(filePath))
             {
@@ -96,9 +101,19 @@ namespace PlotTimeSeries
                     MessageBox.Show("Calibration file for Hx is not selected.", "Error", MessageBoxButton.OK);
                     return;
                 }
+                if (!File.Exists(TextBoxCoilCalHx.Text))
+                {
+                    MessageBox.Show("Calibration file for Hx (" + TextBoxCoilCalHx.Text + ") does not exist.", "Error", MessageBoxButton.OK);
+                    return;
+                }
                 if (String.IsNullOrEmpty(TextBoxCoilCalHy.Text))
                 {
                     MessageBox.Show("Calibration file for Hy is not selected.", "Error", MessageBoxButton.OK);
+                    return;
+                }
+                if (!File.Exists(TextBoxCoilCalHy.Text))
+                {
+                    MessageBox.Show("Calibration file for Hy (" + TextBoxCoilCalHy.Text + ") does not exist.", "Error", MessageBoxButton.OK);
                     return;
                 }
                 writer.WriteLine(TextBoxCoilCalHx.Text);

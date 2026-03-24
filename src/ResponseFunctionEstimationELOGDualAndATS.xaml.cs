@@ -211,6 +211,11 @@ namespace PlotTimeSeries
                 MessageBox.Show("No work folder is selected.", "Error", MessageBoxButton.OK);
                 return;
             }
+            if (!Directory.Exists(@TextBoxWorkFolder.Text))
+            {
+                MessageBox.Show("Work folder " + TextBoxWorkFolder.Text + " does not exist.", "Error", MessageBoxButton.OK);
+                return;
+            }
             var filePath = System.IO.Path.Combine(TextBoxWorkFolder.Text, "param.dat");
             using (var writer = new StreamWriter(filePath))
             {
@@ -252,7 +257,7 @@ namespace PlotTimeSeries
                 writer.WriteLine("ROTATION");
                 writer.WriteLine(TextBoxRotation.Text);
                 writer.WriteLine("ATS_BINARY");
-                writer.WriteLine("MFS_CAL");
+                writer.WriteLine("ATS_CAL");
                 writer.WriteLine(TextBoxDipoleLengthNS.Text);
                 writer.WriteLine(TextBoxDipoleLengthEW.Text);
                 if (String.IsNullOrEmpty(TextBoxCoilCalHx.Text))
@@ -367,6 +372,7 @@ namespace PlotTimeSeries
                 }
                 writer.WriteLine("END");
             }
+            WriteMessage("Input file was created: " + filePath);
         }
 
         private void ButtonRunAnalysis_Click(object sender, RoutedEventArgs e)
