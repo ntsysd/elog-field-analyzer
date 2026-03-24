@@ -39,10 +39,9 @@ _**Response Function Plot**_
 
 * You can plot resultant response functions (impedance tensor and tipper) simply by pushing a button.
 
+*Please send technical questions about this software to Dr. Yoshiya Usui (https://github.com/yoshiya-usui). 
+
 ## Release note
 ***Ver 1.0.0*** Initial release.
 
 ***Ver 1.1.0*** Some figures and explanations are modified. Contents of Q & A are added.
-
-
-*Please send technical questions about this software to Dr. Yoshiya Usui (https://github.com/yoshiya-usui). 
