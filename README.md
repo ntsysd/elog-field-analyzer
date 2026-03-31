@@ -44,4 +44,4 @@ _**Response Function Plot**_
 ## Release note
 ***Ver 1.0.0*** Initial release.
 
-***Ver 1.1.0*** Bug fix. Some figures are modified and the Q&A section are added in the manual.
+***Ver 1.1.0*** Bug fixed. Some figures are modified and the Q&A section are added in the manual.
